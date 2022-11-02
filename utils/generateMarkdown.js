@@ -1,6 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
+
+function renderLicenseBadge(licenses) {
   const license = ['GNU AGPLv3', 'MIT License', 'Mozilla Public License 2.0'];
 
 if (license === 'GNU AGPLv3') {
@@ -19,7 +20,7 @@ if (license === 'Mozilla Public License 2.0') {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicenseLink(licenses) {
   const license = ['GNU AGPLv3', 'MIT License','Mozilla Public License 2.0'
 ];
 
@@ -42,17 +43,16 @@ function generateMarkdown(data) {
   return `# ${data.title}
 
 
-Description
-
-##table of contents
-
-usage
-installation
-license
-
-this is a readme file for a generator that takes in user inputs and create a beautiful template for their own readme.
-
-`;
+  Description
+  
+  ##table of contents
+  
+  usage
+  installation
+  license
+  
+  this is a readme file for a generator that takes in user inputs and create a beautiful template for their own readme.
+  `;
 }
 
 module.exports = generateMarkdown;

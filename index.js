@@ -53,7 +53,7 @@ function init() {
     .prompt(questions = [
       {
         type: 'input',
-        name: 'name',
+        name: 'title',
         message: 'What is your application name?',
       },
       {
@@ -75,8 +75,8 @@ function init() {
     ])
 
     .then((data) => {
-      const fileContent = `${data.name.toLowerCase().split(' ').join('')}.json`;
-      const fileName = "readme.md"
+      // const fileContent = `${data.name.toLowerCase().split(' ').join('')}.json`;
+      const fileName = `${data.title}`;
 
 
 
