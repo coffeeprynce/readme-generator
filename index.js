@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // const utils = require('utils');
-// const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // const api = require('./utils/api.js');
 
@@ -14,64 +14,81 @@ const inquirer = require('inquirer');
 // const questions = ['what is your name?','What is your location?','What is your github?'];
 
 const profile = {
-    name: "kyle",
-    location: "the Dmv",
-    github: "coffeeprynce",
-    linkedin: "N/A"
-  };
-  
-  const greeting = `My name is ${profile.name}!
+  name: "kyle",
+  location: "the Dmv",
+  github: "coffeeprynce",
+  linkedin: "N/A"
+};
+
+const greeting = `My name is ${profile.name}!
   I am from ${profile.location}.`;
-  
-  console.log(greeting);
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'input',
-      message: 'What is your location?',
-      name: 'USA',
-    },
-    {
-      type: 'input',
-      message: 'What is your github?',
-      name: 'site',
-    },
-    {type: 'input',
-    message: 'license?',
-    name: 'license',
-    }
-  ])
+console.log(greeting);
+// const questions {
+//   type: 'input',
+//   name: 'name',
+//   message: 'What is your name?',
+// },
+// {
+//   type: 'input',
+//   message: 'What is your location?',
+//   name: 'USA',
+// },
+// {
+//   type: 'input',
+//   message: 'What is your github?',
+//   name: 'site',
+// },
+// {
+//   type: 'input',
+//   message: 'license?',
+//   name: 'license',
+// }
+// ])
 
-  .then((data) => {
-    const fileName = `${data.name.toLowerCase().split(' ').join('')}.json`;
+//This is the main function that initializes the generator
 
-    fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) =>
-    err ? console.log(err) : console.log('Success!')
+function init() {
+  inquirer
+    .prompt(questions = [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your application name?',
+      },
+      {
+        type: 'input',
+        message: 'what is this use for?',
+        name: 'usage',
+      },
+      {
+        type: 'input',
+        message: "describe how to install",
+        name: 'installation'
+      },
+      {
+      type: 'list',
+      message: "Choose a license for your project.",
+      choices: ['GNU AGPLv3', 'MIT License', 'The Unlicense'],
+      name: 'license',
+  }
+    ])
+
+    .then((data) => {
+      const fileContent = `${data.name.toLowerCase().split(' ').join('')}.json`;
+      const fileName = "readme.md"
 
 
-    );
-  });
+
+      fs.writeFile(fileName, generateMarkdown(), (err) =>
+        err ? console.log(err) : console.log('Success! you have generated a readme file')
 
 
-//   fs.writeFile('log.txt', process.argv[2], (err) =>
-//   err ? console.error(err) : console.log('Success!')
-// );
-
-// TODO: Create a function to write README file
+      );
+    });
+}
 
 
-
-
- 
-
-// TODO: Create a function to initialize app
-function init() {}
 
 
 
