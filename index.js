@@ -80,7 +80,7 @@ function init() {
 
 
 
-      fs.writeFile(fileName, generateMarkdown(), (err) =>
+      fs.writeFile(fileName, generateMarkdown(data), (err) =>
         err ? console.log(err) : console.log('Success! you have generated a readme file')
 
 
