@@ -1,0 +1,13 @@
+# lol
+
+
+  Description
+  
+  ##table of contents
+  
+  usage
+  installation
+  license
+  
+  this is a readme file for a generator that takes in user inputs and create a beautiful template for their own readme.
+  

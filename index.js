@@ -58,6 +58,11 @@ function init() {
       },
       {
         type: 'input',
+        name: 'description',
+        message: 'What is your application description?',
+      },
+      {
+        type: 'input',
         message: 'what is this use for?',
         name: 'usage',
       },
@@ -67,20 +72,36 @@ function init() {
         name: 'installation'
       },
       {
+        type: 'input',
+        name: 'contributions',
+        message: 'are there any contributors?',
+      },
+      {
       type: 'list',
       message: "Choose a license for your project.",
       choices: ['GNU AGPLv3', 'MIT License', 'The Unlicense'],
       name: 'license',
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: 'what is your github?',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'what is your email address?',
   }
+
     ])
 
     .then((data) => {
       // const fileContent = `${data.name.toLowerCase().split(' ').join('')}.json`;
-      const fileName = `${data.title}`;
+      const fileName = `${data.title}.md`;
 
 
 
-      fs.writeFile(fileName, generateMarkdown(data), (err) =>
+      fs.writeFile(`readmes/${fileName}`, generateMarkdown(data), (err) =>
         err ? console.log(err) : console.log('Success! you have generated a readme file')
 
 
